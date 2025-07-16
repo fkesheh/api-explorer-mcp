@@ -1,13 +1,31 @@
 [project]
 name = "api-explorer-mcp"
 version = "0.1.0"
-description = "A simple MCP server exposing a StreamableHttp transport in stateless mode"
+description = "A Model Context Protocol server for efficient OpenAPI/Swagger specification exploration and API testing"
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Foad Kesheh" }]
-keywords = ["mcp", "llm", "automation", "web", "fetch", "http", "streamable", "stateless"]
+keywords = ["mcp", "llm", "automation", "web", "api", "openapi", "swagger", "testing", "exploration"]
 license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Software Development :: Testing",
+]
 dependencies = ["anyio>=4.5", "click>=8.1.0", "httpx>=0.27", "mcp", "PyYAML>=6.0", "starlette", "uvicorn"]
+
+[project.urls]
+Homepage = "https://github.com/your-username/api-explorer-mcp"
+Repository = "https://github.com/your-username/api-explorer-mcp"
+Documentation = "https://github.com/your-username/api-explorer-mcp#readme"
+"Bug Tracker" = "https://github.com/your-username/api-explorer-mcp/issues"
 
 [project.scripts]
 api-explorer-mcp = "api_explorer_server.server:main"
