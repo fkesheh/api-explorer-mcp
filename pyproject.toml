@@ -50,5 +50,17 @@ ignore = []
 line-length = 88
 target-version = "py310"
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
 [tool.uv]
-dev-dependencies = ["pyright>=1.1.378", "pytest>=8.3.3", "ruff>=0.6.9"]
+dev-dependencies = [
+    "pyright>=1.1.378",
+    "pytest>=8.3.3",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "pytest-httpx>=0.30.0",
+    "ruff>=0.6.9",
+]

@@ -5,18 +5,18 @@ A Model Context Protocol (MCP) server that provides efficient OpenAPI/Swagger sp
 ## Transport Modes
 
 ### 🌐 **Server Mode** - HTTP Transport
-Perfect for web-based integrations and debugging:
+Perfect for web-based integrations and deployments:
 - HTTP-based MCP server on configurable port
 - Streamable HTTP sessions with SSE or JSON responses
-- Easy to debug and test with curl or web tools
+- Easy to test with curl and web tools
 - Stateful spec management in memory
 
 ### 📡 **Stdio Mode** - Standard Input/Output Transport  
-Ideal for direct MCP client integration:
+Ideal for local MCP client integration:
 - Standard input/output transport for MCP clients
 - Direct integration with AI assistants and automation tools
 - Efficient binary protocol communication
-- Perfect for production MCP deployments
+- Perfect for local MCP deployments
 
 ## Features
 
@@ -26,7 +26,61 @@ Ideal for direct MCP client integration:
 - **Detailed Endpoint Info**: Retrieve comprehensive details for specific endpoints
 - **API Execution**: Execute HTTP requests with full parameter support
 - **Multiple Spec Support**: Manage multiple API specifications simultaneously
-- **Dual Transport**: HTTP server for debugging + stdio for production
+- **Dual Transport**: HTTP server for web deployment + stdio for local deployment
+
+## 🚀 Quickstart
+
+Get up and running in 2 minutes:
+
+### 1. Add to Your MCP Client Configuration
+
+Add this to your MCP configuration file (e.g., `claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "api-explorer": {
+      "command": "/opt/homebrew/bin/uv",
+      "args": [
+        "run",
+        "--with",
+        "api-explorer-mcp",
+        "api-explorer-mcp",
+        "stdio"
+      ]
+    }
+  }
+}
+```
+
+### 2. Start Using It
+
+Once configured, you can immediately start exploring APIs with natural language:
+
+```
+Load the Shippo API spec from https://docs.goshippo.com/spec/shippoapi/public-api.yaml
+```
+
+```
+Show me the Address schema details
+```
+
+```
+Get shipping rates from San Francisco to New York for a 1lb package
+```
+
+### 3. What You Get
+
+- ✅ **Zero Installation** - Dependencies managed automatically
+- ✅ **Token Efficient** - Smart summaries instead of full spec dumps  
+- ✅ **Real API Testing** - Execute actual HTTP requests
+- ✅ **Multiple APIs** - Load and switch between different specifications
+
+### Need More Control?
+
+- **Web Deployment**: Use [Server Mode](#-server-mode---http-transport) for HTTP-based integrations
+- **Detailed Setup**: See [Installation & Setup](#installation--setup) for advanced configuration
+- **API Reference**: Check [MCP Tools Available](#mcp-tools-available) for all capabilities
 
 ## Installation & Setup
 
@@ -327,15 +381,15 @@ Here's a complete example using the Shippo shipping API:
 ## Benefits
 
 ### Server Mode Benefits
-- ✅ **Easy Debugging**: HTTP interface allows testing with curl and web tools
+- ✅ **Easy Testing**: HTTP interface allows testing with curl and web tools
 - ✅ **Flexible Integration**: Works with any HTTP client
 - ✅ **Visual Inspection**: Easy to inspect requests and responses
-- ✅ **Development Friendly**: Great for development and testing
+- ✅ **Web Deployment**: Great for web-based integrations and services
 
 ### Stdio Mode Benefits  
 - ✅ **Direct Integration**: Native MCP client communication
 - ✅ **Efficient Protocol**: Binary MCP protocol for optimal performance
-- ✅ **Production Ready**: Designed for production AI assistant integration
+- ✅ **Local Ready**: Designed for local AI assistant integration
 - ✅ **Standard Compliant**: Full MCP specification compliance
 
 ### Shared Benefits
@@ -362,8 +416,8 @@ Here's a complete example using the Shippo shipping API:
 ---
 
 **Choose Your Transport:**
-- Use **Server mode** for development, debugging, and HTTP-based integrations
-- Use **Stdio mode** for production MCP client integration and AI assistants
+- Use **Server mode** for web deployment and HTTP-based integrations
+- Use **Stdio mode** for local MCP client integration and AI assistants
 
 **Zero Setup Required:** Just configure the MCP client with the `uv run` command and start exploring APIs!
 
